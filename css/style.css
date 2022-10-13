@@ -1,3 +1,5 @@
+/*Here, I start from the initial 25 px and 
+opacity of 0 and it ends at 475 px*/
 @keyframes logoMove{
     from{width: 25px; 
          opacity: 0;}
@@ -5,17 +7,21 @@
        opacity: 1;}
   }
 
+/*My animation; named logomove, it occurs within 5 seconds*/
   #logo{
     animation: logoMove 5s ease-in-out;
   }
 
+  /*Poppins with serif as the backup.
+  Uses an absolute url (I struggled with this last HW)*/
   body{
     font-family: 'Poppins', serif;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
   }
 
-
+/*Column is used for the default view in
+order to get the stacking effect, along with column*/
   header{
     display:flex;
     flex-direction: column;
@@ -24,6 +30,8 @@
     justify-content: space-between;
     margin-bottom: 0px;
   }
+
+  /*This logic may be redundant*/
   .nav_links{
     display: flex;
     flex-wrap:nowrap;
@@ -31,10 +39,13 @@
     justify-content: space-between;
   }
 
+  /*When clicked, the link will stay the original color.
+  All links are changed to blue in order to keep full sameness*/
   a:visited, a:link{
     color: blue;
   }
 
+  /*Specified changes for the card headers.*/
   .card > header{
     background: #288088;
     border-style: solid;
@@ -46,10 +57,15 @@
     border-top-right-radius: 50px;
   }
 
+  /*The border radius is changed here, as this is the white background
+  of the card header*/
   .card{
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 
+
+    /*This logic + the pricing logic gains sameness
+    within width of the flex columns*/
     display: flex;
     flex-direction: column;
     flex-basis: 450px;;
@@ -63,6 +79,7 @@
     align-items: center;
   }
 
+  /*As specified in the instructions*/
   .gallery > img{
     border-style: solid;
     border-width: 10px;
@@ -71,6 +88,8 @@
     margin: 10px;
   }
 
+  /*Was fiddled around with in inspect element until 
+  correct*/
   .gallery{
     display: flex;
     flex-direction: row;
@@ -91,12 +110,14 @@
         flex-direction: row;
         justify-content: space-between
     }
+    /*SPACE BETWEEN IS NOW USED TO GET THE LOGO
+    AND THE LINKS TO BE ON OPPOSITE SIDES*/
     body > header{
         justify-content: space-between;
     }
 
 
-
+    /*Sticky positioning allows the header to stay near the top*/
     body > header{
         top: 0;
         position: sticky;
@@ -107,22 +128,25 @@
     }
   }
 
-
+/*Given reduced motion, this turns off the blur*/
   @media screen and (prefers-reduced-motion: reduce) {
     #logo {
         animation: none;
     }
 }
   @media print{
+    /*Default font family and no background image as specified*/
     body{
         font-family: Arial, Helvetica;
         background-image: none;
     }
     
+    /*Used in conjunction with flex to spread out*/
     header nav{
         width: 100%;
     }
     
+    /*Single row, spaces inbetween*/
     .nav_links{
         display: flex;
         flex-direction: row;
@@ -130,12 +154,13 @@
         justify-content: space-around;
     }
 
+    /*gets rid of wrapping from earlier for proper alignment*/
     .pricing{
         display: flex;
         flex-wrap: nowrap;
         align-items: flex-end;
     }
-
+    /*as specified in instructions*/
     .card{
         display: flex;
         flex-basis: 325px;
@@ -144,13 +169,15 @@
         border-color: #45ADDD;
     }
 
+    /*gets rid of gallery*/
     #gallery{
         display: none;
     }
     .gallery{
         display: none;
     }
-
+    /*The children of the card is the ul, the child is the list,
+    and the nth li will have the emoji afterwards*/
     .card > ul > li:nth-child(2)::after{
         content: '👍'
     }
