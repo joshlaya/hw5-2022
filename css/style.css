@@ -21,7 +21,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 0px;
   }
   .nav_links{
@@ -29,10 +29,9 @@
     flex-wrap:nowrap;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
   }
 
-  a:visited{
+  a:visited, a:link{
     color: blue;
   }
 
@@ -88,7 +87,10 @@
         flex-wrap: wrap;
         flex-direction: row;
     }
-
+    .nav_links{
+        flex-direction: row;
+        justify-content: space-between
+    }
     body > header{
         justify-content: space-between;
     }
@@ -124,6 +126,7 @@
     .nav_links{
         display: flex;
         flex-direction: row;
+        flex-direction: nowrap;
         justify-content: space-around;
     }
 
@@ -148,5 +151,8 @@
         display: none;
     }
 
+    .card > ul > li:nth-child(2)::after{
+        content: '👍'
+    }
   }
  
